@@ -1,15 +1,18 @@
-FROM python:3.7-slim
+FROM python:3.11.5-slim
 
-RUN mkdir /streamlit
+ARG DIR
+ENV DIR $DIR
 
-COPY requirements.txt /streamlit
+# 디렉터리 생성
+RUN mkdir $DIR
 
-WORKDIR /streamlit
+# 소스코드 복사
+COPY . $DIR
+
+#작업 폴더 설정
+WORKDIR $DIR
 
 RUN pip install -r requirements.txt
 
-COPY . /streamlit
-
 EXPOSE 8501
-
 CMD ["streamlit", "run", "app.py"]
