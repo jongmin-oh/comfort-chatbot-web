@@ -2,6 +2,9 @@ import streamlit as st
 import requests
 import time
 
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent
+
 
 def display_existing_messages():
     if "messages" not in st.session_state:
@@ -33,7 +36,7 @@ def assistant_response(query):
 def main():
     st.title("인공지능 위로 챗봇 오복이")
 
-    st.image("./assets/오복이.png", width=200)
+    st.image(str(BASE_DIR.joinpath("assets", "오복이.png")), width=200)
     st.write("안녕하세요! 저는 인공지능 위로봇 '오복이'입니다.")
     st.write("우울한 마음을 위로해 드릴게요!")
     st.markdown("---")
