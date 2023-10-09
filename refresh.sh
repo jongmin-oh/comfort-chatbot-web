@@ -14,5 +14,5 @@ echo "새로운 ${SERVER_NAME} 서버를 빌드합니다."
 docker build --build-arg DIR=$docker_base_dir -t ${SERVER_NAME} .
 
 echo "새로운 ${SERVER_NAME} 서버를 시작합니다."
-docker run --name ${SERVER_NAME} --restart=always --network=bridge -v $PWD:$docker_base_dir -d -p 80:${PORT} ${SERVER_NAME}:latest
+docker run --name ${SERVER_NAME} --restart=always --network=bridge -v $PWD:$docker_base_dir -d -p 80:80 ${SERVER_NAME}:latest
 docker logs ${SERVER_NAME} --tail 20 -f

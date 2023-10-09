@@ -8,4 +8,4 @@ aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS
 docker pull ${AWS_ECR_URL}/${SERVER_NAME}:latest
 
 docker tag ${AWS_ECR_URL}/${SERVER_NAME}:latest ${SERVER_NAME}:latest
-docker run --name ${SERVER_NAME} --restart=always --network=bridge -d -p 80:${PORT} ${SERVER_NAME}:latest
+docker run --name ${SERVER_NAME} --restart=always --network=bridge -d -p 80:80 ${SERVER_NAME}:latest
