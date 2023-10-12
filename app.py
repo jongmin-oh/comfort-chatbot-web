@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 import time
-from log_visitor import record_visitor
 
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
@@ -42,8 +41,6 @@ def main():
     st.write("안녕하세요! 저는 인공지능 위로봇 '오복이'입니다.")
     st.write("우울한 마음을 위로해 드릴게요!")
     st.markdown("---")
-    
-    daily_count, total_count = record_visitor()
 
     st.sidebar.title("Kakao Channel")
     st.sidebar.markdown("[카카오톡채널 - 위로봇 오복이](http://pf.kakao.com/_BNZRb)")
@@ -54,10 +51,6 @@ def main():
 
     st.sidebar.title("Contact")
     st.sidebar.write("alswhddh@naver.com")
-    
-    st.sidebar.title("Visitor")
-    st.sidebar.write(f"Today: {daily_count}")
-    st.sidebar.write(f"Total: {total_count}")
 
     display_existing_messages()
 
