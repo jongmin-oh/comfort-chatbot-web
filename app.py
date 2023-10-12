@@ -34,7 +34,8 @@ def assistant_response(query):
 
 
 def main():
-    st.title("인공지능 위로 챗봇 오복이")
+    st.set_page_config(page_title="위로봇 오복이", page_icon="🤖")
+    st.header("인공지능 위로 챗봇 오복이", anchor="top", divider='rainbow')
 
     st.image(str(BASE_DIR.joinpath("assets", "charactor.png")), width=200)
     st.write("안녕하세요! 저는 인공지능 위로봇 '오복이'입니다.")
